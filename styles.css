@@ -74,3 +74,15 @@ label {
     color: white;
     text-shadow: 2px 2px 5px black;
 }
+
+.fade-to-white {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
