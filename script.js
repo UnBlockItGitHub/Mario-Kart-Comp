@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const titleScreen = document.getElementById("titleScreen");
+    const startButton = document.getElementById("startButton");
     const menuScreen = document.getElementById("menuScreen");
     const submitCode = document.getElementById("submitCode");
     const background = document.querySelector(".background");
@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const dailyCode = "Race1";  // Set your daily code here
 
-    // Event listener for any key press
-    document.addEventListener("keydown", function() {
-        titleScreen.style.display = "none";
+    startButton.addEventListener("click", function() {
+        document.querySelector(".title-screen").style.display = "none";
         menuScreen.style.display = "flex";
         background.style.filter = "blur(10px)";
     });
