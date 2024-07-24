@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const startButton = document.getElementById("startButton");
     const menuScreen = document.getElementById("menuScreen");
     const submitCode = document.getElementById("submitCode");
+    const background = document.querySelector(".background");
 
     const dailyCode = "Race1";  // Set your daily code here
 
     startButton.addEventListener("click", function() {
         document.querySelector(".title-screen").style.display = "none";
         menuScreen.style.display = "flex";
+        background.style.filter = "blur(10px)";
     });
 
     submitCode.addEventListener("click", function() {
