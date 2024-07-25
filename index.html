@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Kart 8 Deluxe Compotition - Title Screen</title>
+    <title>Mario Kart Compotition - Title Screen</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background"></div>
-    <div class="title-screen" id="titleScreen">
-        <div class="logo">Mario Kart 8 Deluxe</div>
-        <button id="startButton">Start</button>
+    <div class="title-screen">
+        <img src="./backgrounds/TitleScreen1.jpg" alt="Title Background" class="background">
+        <div class="logo-container">
+            <img src="./backgrounds/logo.png" alt="Logo" class="logo">
+        </div>
+        <button id="startButton" class="start-button">Start</button>
     </div>
-
-    <div class="menu-screen" id="menuScreen">
-        <label for="dailyCode">Input Daily Code:</label>
-        <input type="text" id="dailyCode" name="dailyCode">
-        <button id="submitCode">Submit</button>
-    </div>
-
-    <div class="fade-to-white" id="fadeToWhite"></div>
-
     <script src="script.js"></script>
 </body>
 </html>
