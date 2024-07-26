@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Kart CompatitionKart Menu</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mario Kart Competiton - Kart Select</title>
+    <link rel="stylesheet" href="kart_style.css">
 </head>
 <body>
-    <!-- Kart Code Input Screen -->
-    <div class="screen">
-        <p>Input Kart Code</p>
-        <input type="text" id="kart-code-input">
-        <button id="submit-kart-code-button">Submit</button>
-    </div>
-    
-    <!-- Kart Code Result -->
-    <div id="kart-code-result" class="screen hidden">
-        <p id="kart-code-output"></p>
-        <button id="restart-button">Restart</button>
+    <div class="kart-screen">
+        <div class="content centered-content">
+            <p>Input Kart Code</p>
+            <input type="text" id="kart-code-input" class="code-input">
+            <button id="submit-kart-code-button" class="action-button">Submit</button>
+        </div>
+        <div id="result" class="result hidden">
+            <div id="character-container">
+                <img id="character-logo" class="character-logo" alt="Character Logo">
+                <p id="character-name"></p>
+            </div>
+            <div id="kart-container">
+                <img id="kart-logo" class="kart-logo" alt="Kart Logo">
+                <p id="kart-name"></p>
+            </div>
+        </div>
     </div>
 
-    <script src="kart-script.js"></script>
+    <script src="kart_script.js"></script>
 </body>
 </html>
