@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Kart Competition - Title Screen</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Title Screen</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="title-screen">
-        <img src="./backgrounds/TitleScreen1.jpg" alt="Title Background" class="background">
-        <div class="logo-container">
-            <img src="./backgrounds/logo.png" alt="Logo" class="logo">
-        </div>
-        <button id="startButton" class="start-button">Start</button>
+    <div id="title-screen" class="screen">
+        <img src="backgrounds/TitleScreen1.jpg" alt="Title Screen Background" class="background">
+        <img src="backgrounds/logo.png" alt="Game Logo" class="logo">
+        <button id="start-button">Start</button>
     </div>
+    <div id="daily-code-screen" class="screen hidden">
+        <p>Input Daily Code</p>
+        <input type="text" id="daily-code-input">
+        <button id="submit-code-button">Submit</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
