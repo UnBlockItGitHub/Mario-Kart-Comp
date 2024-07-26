@@ -7,25 +7,18 @@
     <link rel="stylesheet" href="kart_style.css">
 </head>
 <body>
-    <div class="kart-screen">
-        <div class="content centered-content">
-            <p>Input Kart Code</p>
-            <input type="text" id="kart-code-input" class="code-input" placeholder="name-character-kart">
-            <button id="submit-kart-code-button" class="action-button">Submit</button>
-            <div id="name-display" class="name-display"></div> <!-- Name display element -->
+    <div class="container">
+        <div id="character-info" class="info">
+            <img id="character-image" class="character-image" src="" alt="Character Logo">
+            <h2 id="character-name">Character Name</h2>
+            <img id="kart-image" class="kart-image" src="" alt="Kart Logo">
+            <h3 id="kart-name">Kart Name</h3>
         </div>
-        <div id="result" class="result hidden">
-            <div id="character-container">
-                <img id="character-logo" class="character-logo" alt="Character Logo">
-                <p id="character-name"></p>
-            </div>
-            <div id="kart-container">
-                <img id="kart-logo" class="kart-logo" alt="Kart Logo">
-                <p id="kart-name"></p>
-            </div>
+        <div id="code-input">
+            <input type="text" id="character-code-input" class="code-input" placeholder="Enter Character Code">
+            <button id="submit-character-code" class="action-button">Submit</button>
         </div>
     </div>
-
     <script src="kart_script.js"></script>
 </body>
 </html>
