@@ -8,53 +8,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const kartName = document.getElementById('kart-name');
 
     const characters = {
-        'MA': 'Mario',
-        'LU': 'Luigi',
-        'PE': 'Peach',
-        'DA': 'Daisy',
-        'RO': 'Rosalina',
-        'YO': 'Yoshi',
-        'TO': 'Toad',
-        'KT': 'Koopa Troopa',
-        'BM': 'Baby Mario',
-        'BL': 'Baby Luigi',
-        'BP': 'Baby Peach',
-        'BD': 'Baby Daisy',
-        'BR': 'Baby Rosalina',
-        'WA': 'Wario',
-        'WL': 'Waluigi',
-        'BO': 'Bowser',
-        'DK': 'Donkey Kong'
+        'Mario': 'Mario',
+        'Luigi': 'Luigi',
+        'Peach': 'Peach',
+        'Daisy': 'Daisy',
+        'Rosalina': 'Rosalina',
+        'Yoshi': 'Yoshi',
+        'Toad': 'Toad',
+        'Koopa Troopa': 'Koopa Troopa',
+        'Baby Mario': 'Baby Mario',
+        'Baby Luigi': 'Baby Luigi',
+        'Baby Peach': 'Baby Peach',
+        'Baby Daisy': 'Baby Daisy',
+        'Baby Rosalina': 'Baby Rosalina',
+        'Wario': 'Wario',
+        'Waluigi': 'Waluigi',
+        'Bowser': 'Bowser',
+        'Donkey Kong': 'Donkey Kong'
     };
 
     const karts = {
-        'SK': 'Standard Kart',
-        'PF': 'Pipe Frame',
-        'M8': 'Mach 8',
-        'SD': 'Steel Driver',
-        'GSK': 'Gold Standard Kart',
-        'KCK': 'Koopa Clown Kart',
-        'SB': 'Standard Bike',
-        'TD': 'The Duke',
-        'CT': 'City Tripper'
+        'Standard Kart': 'Standard Kart',
+        'Pipe Frame': 'Pipe Frame',
+        'Mach 8': 'Mach 8',
+        'Steel Driver': 'Steel Driver',
+        'Gold Standard Kart': 'Gold Standard Kart',
+        'Koopa Clown Kart': 'Koopa Clown Kart',
+        'Standard Bike': 'Standard Bike',
+        'The Duke': 'The Duke',
+        'City Tripper': 'City Tripper'
     };
 
     submitKartCodeButton.addEventListener('click', () => {
         const kartCode = kartCodeInput.value.split('-');
         if (kartCode.length !== 3) {
-            alert('Invalid format. Please use the format: name-character-kart (e.g., leni-GSK-WA)');
+            alert('Invalid format. Please use the format: name-character-kart (e.g., leni-Mario-Gold Standard Kart)');
             return;
         }
         
         const name = kartCode[0];
-        const characterCode = kartCode[1].toUpperCase();
-        const kartCodePart = kartCode[2].toUpperCase();
+        const characterNameKey = kartCode[1];
+        const kartNameKey = kartCode[2];
 
-        if (characters[characterCode] && karts[kartCodePart]) {
-            characterLogo.src = `KartSelect/Characters/${characterCode}.png`;
-            characterName.textContent = characters[characterCode];
-            kartLogo.src = `KartSelect/Karts/${kartCodePart}.png`;
-            kartName.textContent = karts[kartCodePart];
+        if (characters[characterNameKey] && karts[kartNameKey]) {
+            characterLogo.src = `KartSelect/Characters/${characterNameKey}.png`;
+            characterName.textContent = characters[characterNameKey];
+            kartLogo.src = `KartSelect/Karts/${kartNameKey}.png`;
+            kartName.textContent = karts[kartNameKey];
             resultDiv.classList.remove('hidden');
         } else {
             alert('Invalid Kart Code. Please try again.');
