@@ -1,23 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const submitKartCodeButton = document.getElementById('submit-kart-code-button');
     const kartCodeInput = document.getElementById('kart-code-input');
-    const kartCodeResult = document.getElementById('kart-code-result');
-    const kartCodeOutput = document.getElementById('kart-code-output');
-    const restartButton = document.getElementById('restart-button');
+    const resultDiv = document.getElementById('result');
+    const characterLogo = document.getElementById('character-logo');
+    const characterName = document.getElementById('character-name');
+    const kartLogo = document.getElementById('kart-logo');
+    const kartName = document.getElementById('kart-name');
 
-    const kartMap = {
-        'SK': 'Standard Kart',
-        'PF': 'Pipe Frame',
-        'M8': 'Mach 8',
-        'SD': 'Steel Driver',
-        'GSK': 'Gold Standard Kart',
-        'KCK': 'Koopa Clown Kart',
-        'SB': 'Standard Bike',
-        'TD': 'The Duke',
-        'CT': 'City Tripper'
-    };
-
-    const characterMap = {
+    const characters = {
         'MA': 'Mario',
         'LU': 'Luigi',
         'PE': 'Peach',
@@ -37,27 +27,31 @@ document.addEventListener('DOMContentLoaded', () => {
         'DK': 'Donkey Kong'
     };
 
+    const karts = {
+        'SK': 'Standard Kart',
+        'PF': 'Pipe Frame',
+        'M8': 'Mach 8',
+        'SD': 'Steel Driver',
+        'GSK': 'Gold Standard Kart',
+        'KCK': 'Koopa Clown Kart',
+        'SB': 'Standard Bike',
+        'TD': 'The Duke',
+        'CT': 'City Tripper'
+    };
+
     submitKartCodeButton.addEventListener('click', () => {
         const kartCode = kartCodeInput.value.split('-');
-        if (kartCode.length === 3) {
-            const name = kartCode[0];
-            const kart = kartMap[kartCode[1]];
-            const character = characterMap[kartCode[2]];
-            if (name && kart && character) {
-                kartCodeOutput.innerText = `Name: ${name}\nKart: ${kart}\nCharacter: ${character}`;
-                kartCodeInput.parentElement.classList.add('hidden');
-                kartCodeResult.classList.remove('hidden');
-            } else {
-                alert('Invalid kart code. Please try again.');
-            }
-        } else {
-            alert('Invalid kart code format. Please use the format: name-KART-CHAR');
-        }
-    });
+        const characterCode = kartCode[1];
+        const kartCodePart = kartCode[2];
 
-    restartButton.addEventListener('click', () => {
-        kartCodeResult.classList.add('hidden');
-        kartCodeInput.parentElement.classList.remove('hidden');
-        kartCodeInput.value = '';
+        if (characters[characterCode] && karts[kartCodePart]) {
+            characterLogo.src = `KartSelect/Characters/${characterCode}.png`;
+            characterName.textContent = characters[characterCode];
+            kartLogo.src = `KartSelect/Karts/${kartCodePart}.png`;
+            kartName.textContent = karts[kartCodePart];
+            resultDiv.classList.remove('hidden');
+        } else {
+            alert('Invalid Kart Code. Please try again.');
+        }
     });
 });
