@@ -41,8 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitKartCodeButton.addEventListener('click', () => {
         const kartCode = kartCodeInput.value.split('-');
-        const characterCode = kartCode[1];
-        const kartCodePart = kartCode[2];
+        if (kartCode.length !== 3) {
+            alert('Invalid format. Please use the format: name-character-kart (e.g., leni-GSK-WA)');
+            return;
+        }
+        
+        const name = kartCode[0];
+        const characterCode = kartCode[1].toUpperCase();
+        const kartCodePart = kartCode[2].toUpperCase();
 
         if (characters[characterCode] && karts[kartCodePart]) {
             characterLogo.src = `KartSelect/Characters/${characterCode}.png`;
