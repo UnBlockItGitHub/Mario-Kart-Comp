@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const submitKartCodeButton = document.getElementById('submit-kart-code-button');
-    const kartCodeInput = document.getElementById('kart-code-input');
-    const resultDiv = document.getElementById('result');
-    const characterLogo = document.getElementById('character-logo');
+    const characterCodeInput = document.getElementById('character-code-input');
+    const submitCharacterCodeButton = document.getElementById('submit-character-code');
+    const characterImage = document.getElementById('character-image');
     const characterName = document.getElementById('character-name');
-    const kartLogo = document.getElementById('kart-logo');
+    const kartImage = document.getElementById('kart-image');
     const kartName = document.getElementById('kart-name');
-    const nameDisplay = document.getElementById('name-display');
 
+    // Character and Kart mappings
     const characters = {
         'MA': 'Mario',
         'LU': 'Luigi',
@@ -40,26 +39,34 @@ document.addEventListener('DOMContentLoaded', () => {
         'CT': 'City Tripper'
     };
 
-    submitKartCodeButton.addEventListener('click', () => {
-        const kartCode = kartCodeInput.value.split('-');
-        if (kartCode.length !== 3) {
-            alert('Invalid format. Please use the format: name-character-kart (e.g., leni-MA-GSK)');
-            return;
-        }
+    const characterImages = {
+        'Mario': 'KartSelect/Characters/MA.png',
+        'Luigi': 'KartSelect/Characters/LU.png',
+        // Add other character images here
+    };
 
-        const name = kartCode[0];
-        const characterCode = kartCode[1];
-        const kartCodeKey = kartCode[2];
+    const kartImages = {
+        'Standard Kart': 'KartSelect/Karts/SK.png',
+        'Pipe Frame': 'KartSelect/Karts/PF.png',
+        // Add other kart images here
+    };
 
-        if (characters[characterCode] && karts[kartCodeKey]) {
-            characterLogo.src = `KartSelect/Characters/${characters[characterCode]}.png`;
-            characterName.textContent = characters[characterCode];
-            kartLogo.src = `KartSelect/Karts/${karts[kartCodeKey]}.png`;
-            kartName.textContent = karts[kartCodeKey];
-            resultDiv.classList.remove('hidden');
-            nameDisplay.textContent = `Name: ${name}`; // Display the name
+    submitCharacterCodeButton.addEventListener('click', () => {
+        const code = characterCodeInput.value.toUpperCase();
+        const [characterCode, kartCode] = code.split('-');
+        const character = characters[characterCode];
+        const kart = karts[kartCode];
+
+        if (character && kart) {
+            characterImage.src = characterImages[character];
+            characterName.textContent = character;
+            kartImage.src = kartImages[kart];
+            kartName.textContent = kart;
+
+            // Redirect to game.html
+            window.location.href = '/game/game.html';
         } else {
-            alert('Invalid Kart Code. Please try again.');
+            alert('Invalid code. Please try again.');
         }
     });
 });
