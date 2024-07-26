@@ -62,3 +62,9 @@ body, html {
 .hidden {
     display: none;
 }
+
+.name-display {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
