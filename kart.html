@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kart Menu</title>
+    <title>Mario Kart CompatitionKart Menu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Kart Menu!</h1>
+    <!-- Kart Code Input Screen -->
+    <div class="screen">
+        <p>Input Kart Code</p>
+        <input type="text" id="kart-code-input">
+        <button id="submit-kart-code-button">Submit</button>
+    </div>
+    
+    <!-- Kart Code Result -->
+    <div id="kart-code-result" class="screen hidden">
+        <p id="kart-code-output"></p>
+        <button id="restart-button">Restart</button>
+    </div>
+
+    <script src="kart-script.js"></script>
 </body>
 </html>
