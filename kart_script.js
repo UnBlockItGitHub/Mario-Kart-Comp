@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const characterCodeInput = document.getElementById('character-code-input');
     const submitCharacterCodeButton = document.getElementById('submit-character-code');
+    const goToGameButton = document.getElementById('go-to-game');
     const characterImage = document.getElementById('character-image');
     const characterName = document.getElementById('character-name');
     const kartImage = document.getElementById('kart-image');
@@ -63,10 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
             kartImage.src = kartImages[kart];
             kartName.textContent = kart;
 
-            // Redirect to game.html
-            window.location.href = '/game/game.html';
+            // Show the "Go to Game" button
+            goToGameButton.classList.remove('hidden');
         } else {
             alert('Invalid code. Please try again.');
         }
+    });
+
+    goToGameButton.addEventListener('click', () => {
+        const code = characterCodeInput.value.toUpperCase();
+        const [characterCode, kartCode] = code.split('-');
+        const kartParam = kartCode || ''; // Use kartCode for URL
+        // Redirect to game.html with the Kart Code in the URL
+        window.location.href = `/game/game.html?kart=${kartParam}`;
     });
 });
