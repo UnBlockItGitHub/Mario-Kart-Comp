@@ -1,13 +1,16 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const startButton = document.getElementById('startButton');
+const kartNameElement = document.getElementById('kart-name');
+const kartImageElement = document.getElementById('kart-image');
+const kartInfoContainer = document.getElementById('kart-info');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let scene, camera, renderer;
 
-// Initialize the 3D game setup
+// Function to initialize the game
 function initGame() {
     // Setup Three.js
     scene = new THREE.Scene();
@@ -33,11 +36,26 @@ function initGame() {
     animate();
 }
 
+// Function to parse URL parameters
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        kart: params.get('kart') || '',
+    };
+}
+
+// Function to display Kart information
+function displayKartInfo(kartName, kartImageSrc) {
+    kartNameElement.textContent = kartName;
+    kartImageElement.src = kartImageSrc;
+    kartInfoContainer.classList.remove('hidden');
+}
+
 // Handle start button click
 startButton.addEventListener('click', () => {
     // Hide menu
     document.getElementById('menu').style.display = 'none';
-    
+
     // Initialize game
     initGame();
 });
@@ -48,3 +66,26 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Get Kart Code from URL
+const params = getQueryParams();
+const kartCode = params.kart;
+
+// Kart mappings
+const karts = {
+    'SK': { name: 'Standard Kart', image: 'KartSelect/Karts/SK.png' },
+    'PF': { name: 'Pipe Frame', image: 'KartSelect/Karts/PF.png' },
+    'M8': { name: 'Mach 8', image: 'KartSelect/Karts/M8.png' },
+    'SD': { name: 'Steel Driver', image: 'KartSelect/Karts/SD.png' },
+    'GSK': { name: 'Gold Standard Kart', image: 'KartSelect/Karts/GSK.png' },
+    'KCK': { name: 'Koopa Clown Kart', image: 'KartSelect/Karts/KCK.png' },
+    'SB': { name: 'Standard Bike', image: 'KartSelect/Karts/SB.png' },
+    'TD': { name: 'The Duke', image: 'KartSelect/Karts/TD.png' },
+    'CT': { name: 'City Tripper', image: 'KartSelect/Karts/CT.png' }
+};
+
+// Display Kart info if valid
+if (kartCode && karts[kartCode]) {
+    const kart = karts[kartCode];
+    displayKartInfo(kart.name, kart.image);
+}
