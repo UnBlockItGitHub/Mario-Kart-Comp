@@ -1,23 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
-    const submitCodeButton = document.getElementById('submit-code-button');
+    const dailyCodeContainer = document.getElementById('daily-code-container');
     const dailyCodeInput = document.getElementById('daily-code-input');
-    const overlay = document.getElementById('overlay');
-    const dailyCodeSection = document.getElementById('daily-code-section');
-    
-    const DAILY_CODE = "Race1";  // Set your daily code here
+    const submitDailyCodeButton = document.getElementById('submit-daily-code');
 
     startButton.addEventListener('click', () => {
-        overlay.classList.remove('hidden');
-        dailyCodeSection.classList.remove('hidden');
+        // Hide the logo and start button
+        startButton.classList.add('hidden');
+        document.getElementById('logo').classList.add('hidden');
+        
+        // Show the daily code input section
+        dailyCodeContainer.classList.remove('hidden');
     });
 
-    submitCodeButton.addEventListener('click', () => {
-        const enteredCode = dailyCodeInput.value;
-        if (enteredCode === DAILY_CODE) {
+    submitDailyCodeButton.addEventListener('click', () => {
+        const dailyCode = dailyCodeInput.value;
+        if (dailyCode === 'Race1') { // Replace with your actual daily code
             window.location.href = 'kart.html';
         } else {
-            alert('Incorrect code. Please try again.');
+            alert('Invalid daily code. Please try again.');
         }
     });
 });
