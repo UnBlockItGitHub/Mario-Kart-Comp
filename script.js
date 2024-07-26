@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitCodeButton = document.getElementById('submit-code-button');
     const titleScreen = document.getElementById('title-screen');
     const dailyCodeScreen = document.getElementById('daily-code-screen');
+    const dailyCodeInput = document.getElementById('daily-code-input');
+
+    const DAILY_CODE = "Race1";  // Set your daily code here
 
     startButton.addEventListener('click', () => {
         titleScreen.classList.add('hidden');
@@ -10,8 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     submitCodeButton.addEventListener('click', () => {
-        const code = document.getElementById('daily-code-input').value;
-        // You can add code verification here if needed
-        window.location.href = 'kart.html';
+        const enteredCode = dailyCodeInput.value;
+        if (enteredCode === DAILY_CODE) {
+            window.location.href = 'kart.html';
+        } else {
+            alert('Incorrect code. Please try again.');
+        }
     });
 });
