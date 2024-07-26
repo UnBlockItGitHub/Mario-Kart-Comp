@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const characterName = document.getElementById('character-name');
     const kartLogo = document.getElementById('kart-logo');
     const kartName = document.getElementById('kart-name');
+    const nameDisplay = document.getElementById('name-display');
 
     const characters = {
         'MA': 'Mario',
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             kartLogo.src = `KartSelect/Karts/${karts[kartCodeKey]}.png`;
             kartName.textContent = karts[kartCodeKey];
             resultDiv.classList.remove('hidden');
+            nameDisplay.textContent = `Name: ${name}`; // Display the name
         } else {
             alert('Invalid Kart Code. Please try again.');
         }
