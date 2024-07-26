@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Kart Competition - Kart Code Input</title>
+    <title>Kart Code Input</title>
     <link rel="stylesheet" href="kart_style.css">
 </head>
 <body>
-    <div class="container">
-        <div id="character-info" class="info">
-            <img id="character-image" class="character-image" src="" alt="Character Logo">
-            <h2 id="character-name">Character Name</h2>
-            <img id="kart-image" class="kart-image" src="" alt="Kart Logo">
-            <h3 id="kart-name">Kart Name</h3>
+    <div class="kart-screen">
+        <div id="character-info" class="content">
+            <img id="character-image" class="character-logo" src="" alt="Character Logo">
+            <h2 id="character-name" class="name-display">Character Name</h2>
+            <img id="kart-image" class="kart-logo" src="" alt="Kart Logo">
+            <h3 id="kart-name" class="name-display">Kart Name</h3>
         </div>
-        <div id="code-input">
+        <div id="code-input" class="content">
             <input type="text" id="character-code-input" class="code-input" placeholder="Enter Character Code">
             <button id="submit-character-code" class="action-button">Submit</button>
         </div>
+        <button id="go-to-game" class="action-button hidden">Go to Game</button>
     </div>
     <script src="kart_script.js"></script>
 </body>
