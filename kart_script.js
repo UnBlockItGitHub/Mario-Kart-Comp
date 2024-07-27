@@ -98,6 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     goToGameButton.addEventListener('click', () => {
         // Redirect to game.html
-        window.location.href = '/game/game.html';
+        window.location.href = 'game.html';
     });
 });
