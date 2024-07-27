@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
     const startButton = document.getElementById('startButton');
     const selectedNameElem = document.getElementById('selected-name');
     const selectedCharacterElem = document.getElementById('selected-character');
@@ -27,13 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             renderer = new THREE.WebGLRenderer({ canvas: canvas });
+            renderer.setSize(window.innerWidth, window.innerHeight);
         } catch (error) {
             console.error('Error creating WebGL context:', error);
             alert('WebGL not supported. Please use a different browser or update your current browser.');
             return;
         }
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
 
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
