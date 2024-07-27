@@ -2,16 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const startButton = document.getElementById('startButton');
+    const selectedNameElem = document.getElementById('selected-name');
     const selectedCharacterElem = document.getElementById('selected-character');
     const selectedKartElem = document.getElementById('selected-kart');
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    const selectedName = localStorage.getItem('selectedName');
     const selectedCharacter = localStorage.getItem('selectedCharacter');
     const selectedKart = localStorage.getItem('selectedKart');
 
-    if (selectedCharacter && selectedKart) {
+    if (selectedName && selectedCharacter && selectedKart) {
+        selectedNameElem.textContent = `Name: ${selectedName}`;
         selectedCharacterElem.textContent = `Character: ${selectedCharacter}`;
         selectedKartElem.textContent = `Kart: ${selectedKart}`;
     }
