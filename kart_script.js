@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'City Tripper': 'KartSelect/Karts/City Tripper.png',
     };
 
-      submitCharacterCodeButton.addEventListener('click', () => {
+        submitCharacterCodeButton.addEventListener('click', () => {
         const name = nameInput.value;
         const code = characterCodeInput.value.toUpperCase();
         const [characterCode, kartCode] = code.split('-');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     goToGameButton.addEventListener('click', () => {
-        // Redirect to game.html
+        // Redirect to game.html within the same directory
         window.location.href = 'game.html';
     });
 });
