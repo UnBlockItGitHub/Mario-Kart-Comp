@@ -55,10 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
         if (renderer) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
             renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
         }
     });
 });
