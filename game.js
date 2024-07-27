@@ -24,7 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function initGame() {
         scene = new THREE.Scene();
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        renderer = new THREE.WebGLRenderer({ canvas: canvas });
+
+        try {
+            renderer = new THREE.WebGLRenderer({ canvas: canvas });
+        } catch (error) {
+            console.error('Error creating WebGL context:', error);
+            alert('WebGL not supported. Please use a different browser or update your current browser.');
+            return;
+        }
+
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         const geometry = new THREE.BoxGeometry();
@@ -51,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        if (renderer) {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
     });
 });
