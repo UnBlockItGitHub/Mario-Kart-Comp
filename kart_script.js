@@ -71,19 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
         'City Tripper': 'KartSelect/Karts/City Tripper.png',
     };
 
-    submitCharacterCodeButton.addEventListener('click', () => {
+      submitCharacterCodeButton.addEventListener('click', () => {
+        const name = nameInput.value;
         const code = characterCodeInput.value.toUpperCase();
         const [characterCode, kartCode] = code.split('-');
         const character = characters[characterCode];
         const kart = karts[kartCode];
 
-        if (character && kart) {
+        if (name && character && kart) {
             characterImage.src = characterImages[character];
             characterName.textContent = character;
             kartImage.src = kartImages[kart];
             kartName.textContent = kart;
 
-            // Store selected character and kart in local storage
+            // Store selected name, character, and kart in local storage
+            localStorage.setItem('selectedName', name);
             localStorage.setItem('selectedCharacter', character);
             localStorage.setItem('selectedKart', kart);
 
